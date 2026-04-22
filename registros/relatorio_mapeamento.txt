@@ -1,0 +1,10 @@
+RELATÓRIO DE MAPEAMENTO DE REDE - LAB DOCKER
+Data: 21/04/2026
+-------------------------------------------
+ALVOS IDENTIFICADOS:
+1. 172.20.0.10 - Servidor Web (Nginx) - Porta 80 OPEN
+2. 172.20.0.20 - Banco de Dados (MariaDB) - Porta 3306 OPEN
+   - Hash extraído: *51201EB771E2BBFF84032445BC86A4E94EED9981
+3. 172.20.0.30 - Servidor Admin (SSH) - Porta 22 OPEN
+-------------------------------------------
+Ferramentas utilizadas: Nmap, Docker, MariaDB Client.
