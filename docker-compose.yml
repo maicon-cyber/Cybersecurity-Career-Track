@@ -1,0 +1,48 @@
+version: '3'
+
+networks:
+  rede_interna:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+  rede_externa:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
+
+services:
+  servidor_web:
+    image: nginx:latest
+    container_name: servidor_web
+    networks:
+      rede_interna:
+        ipv4_address: 172.20.0.10
+    ports:
+      - "80:80"
+
+  banco_dados:
+    image: mariadb:latest
+    container_name: banco_dados
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword123
+    networks:
+      rede_interna:
+        ipv4_address: 172.20.0.20
+
+  servidor_admin:
+    image: rastasheep/ubuntu-sshd
+    container_name: servidor_admin
+    networks:
+      rede_interna:
+        ipv4_address: 172.20.0.30
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: dvwa
+    ports:
+      - "8080:80"
+    networks:
+      rede_externa:
+        ipv4_address: 172.18.0.2
