@@ -10,7 +10,7 @@ echo -e "${AZUL}[+] Verificando alterações no repositório...${SEM_COR}"
 
 # 1. Verifica se existem mudanças (arquivos novos, modificados ou deletados)
 if [[ -n $(git status -s) ]]; then
-    echo -p "${AZUL}[+] Alterações detectadas. Preparando arquivos...${SEM_COR}"
+    echo -e "${AZUL}[+] Alterações detectadas. Preparando arquivos...${SEM_COR}"
     
     # Adiciona tudo ao estágio de commit
     git add .
